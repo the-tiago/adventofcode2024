@@ -10,7 +10,6 @@ defmodule Day2 do
     input
     |> parse_input()
     |> Enum.map(&line_safe_brute_force(&1))
-    |> IO.inspect()
     |> Enum.sum()
   end
 
@@ -35,7 +34,6 @@ defmodule Day2 do
       1
     else
       0..(length(list) - 1)
-      |> IO.inspect()
       |> Enum.reduce_while(0, fn index, _ ->
         {left, [_ | right]} = Enum.split(list, index)
 
