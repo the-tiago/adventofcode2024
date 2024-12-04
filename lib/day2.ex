@@ -1,14 +1,14 @@
 defmodule Day2 do
   def part1(input) do
     input
-    |> parse_input()
+    |> Utils.parse_integer_table()
     |> Enum.map(&line_safe(&1))
     |> Enum.sum()
   end
 
   def part2(input) do
     input
-    |> parse_input()
+    |> Utils.parse_integer_table()
     |> Enum.map(&line_safe_brute_force(&1))
     |> Enum.sum()
   end
@@ -70,11 +70,4 @@ defmodule Day2 do
   #    do: line_safe_tolerated(direction, [a | rest], :used)
   #
   #  defp line_safe_tolerated(_, _, :used), do: 0
-  # input ----------------------------------------
-  defp parse_input(input) do
-    input
-    |> String.split("\n", trim: true)
-    |> Enum.map(&String.split(&1, ~r/\s+/, trim: true))
-    |> Enum.map(&Enum.map(&1, fn x -> String.to_integer(x) end))
-  end
 end

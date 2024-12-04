@@ -1,6 +1,6 @@
 defmodule Day4 do
   def part1(input) do
-    {matrix, x, y} = parse_input(input)
+    {matrix, x, y} = Utils.parse_string_matrix(input)
 
     Enum.reduce(0..(y - 1), 0, fn y, acc ->
       Enum.reduce(0..(x - 1), acc, fn x, acc ->
@@ -10,7 +10,7 @@ defmodule Day4 do
   end
 
   def part2(input) do
-    {matrix, x, y} = parse_input(input)
+    {matrix, x, y} = Utils.parse_string_matrix(input)
 
     Enum.reduce(0..(y - 1), 0, fn y, acc ->
       Enum.reduce(0..(x - 1), acc, fn x, acc ->
@@ -59,24 +59,4 @@ defmodule Day4 do
   defp x_match("S", "M", "S", "M"), do: 1
   defp x_match("S", "S", "M", "M"), do: 1
   defp x_match(_, _, _, _), do: 0
-
-  # input ----------------------------------------
-  defp parse_input(input) do
-    lines =
-      input
-      |> String.split("\n", trim: true)
-
-    matrix =
-      lines
-      |> Enum.with_index()
-      |> Enum.reduce(%{}, fn {line, y}, matrix ->
-        String.graphemes(line)
-        |> Enum.with_index()
-        |> Enum.reduce(matrix, fn {char, x}, matrix ->
-          Map.put(matrix, {x, y}, char)
-        end)
-      end)
-
-    {matrix, String.length(List.first(lines)), length(lines)}
-  end
 end
