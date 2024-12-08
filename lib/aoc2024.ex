@@ -69,6 +69,16 @@ defmodule Aoc2024 do
     Day7.part2(input)
   end
 
+  def day8_part1() do
+    input = read_input("day8.input")
+    Day8.part1(input)
+  end
+
+  def day8_part2() do
+    input = read_input("day8.input")
+    Day8.part2(input)
+  end
+
   defp read_input(file) do
     :code.priv_dir(:adventofcode2024)
     |> Path.join(file)
