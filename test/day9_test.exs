@@ -11,9 +11,9 @@ defmodule Day9Test do
     assert Day9.part1(input) == 1928
   end
 
-  # test "part 2" do
-  #  # input = "2333133121414131402"
-  #  input = "12345"
-  #  assert Day9.part2(input) == 2858
-  # end
+  test "part 2" do
+    input = "2333133121414131402"
+    # input = "12345"
+    assert Day9.part2(input) == 2858
+  end
 end

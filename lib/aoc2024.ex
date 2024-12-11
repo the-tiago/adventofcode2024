@@ -84,6 +84,11 @@ defmodule Aoc2024 do
     Day9.part1(input)
   end
 
+  def day9_part2() do
+    input = read_input("day9.input")
+    Day9.part2(input)
+  end
+
   def day10_part1() do
     input = read_input("day10.input")
     Day10.part1(input)
